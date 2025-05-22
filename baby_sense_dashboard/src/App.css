@@ -506,7 +506,7 @@ p {
   align-items: center;
   margin-bottom: var(--spacing-md);
   flex-wrap: wrap; /* Allow wrapping for title and selector */
-  gap: var(--spacing-sm);\
+  gap: var(--spacing-sm);
 }
 
 .chart-panel-title {
