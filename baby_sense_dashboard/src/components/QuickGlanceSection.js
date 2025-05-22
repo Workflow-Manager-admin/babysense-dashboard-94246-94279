@@ -16,10 +16,10 @@ function QuickGlanceSection() {
 
   return (
     <section className="quick-glance-section">
-      <h2 className="section-title">At a Glance</h2> {/* Optional: Title for the section */}
+      <h2 className="section-title">At a Glance ✨</h2> {/* Added sparkle to title */}
       <div className="stats-card-grid">
         <StatsCard
-          icon="🌙" // Sleeping moon
+          icon="😴" // Sleeping face icon
           title="Sweet Dreams!"
           stat="8h 30m"
           subtext="Total sleep last night"
@@ -27,7 +27,7 @@ function QuickGlanceSection() {
           onClick={() => handleCardClick("Sleep Details")}
         />
         <StatsCard
-          icon="🤸" // Playful icon (e.g. baby footprints, toy blocks)
+          icon="👣" // Footprints icon
           title="Play Time!"
           stat="Active"
           subtext="Currently"
@@ -35,7 +35,7 @@ function QuickGlanceSection() {
           onClick={() => handleCardClick("Activity Details")}
         />
         <StatsCard
-          icon="🌡️" // Thermometer with a smiley face
+          icon="🌡️" // Thermometer icon
           title="Feeling Good?"
           stat="36.8°C"
           subtext="Body Temperature"
@@ -43,11 +43,11 @@ function QuickGlanceSection() {
           onClick={() => handleCardClick("Health Vitals")}
         />
         <StatsCard
-          icon="🍼" // Baby bottle or nursing icon
+          icon="🍼" // Baby bottle icon
           title="Tummy Time!"
           stat="Last fed: 2h ago"
           subtext="Next estimated: 1h"
-          iconColor="var(--accent-calm-green)" // Using calm green for feeding
+          iconColor="var(--accent-calm-green)"
           onClick={() => handleCardClick("Feeding Log")}
         />
       </div>
