@@ -653,99 +653,109 @@ p {
 }
 
 /* Event Timeline Section & Item Styles */
-.event-timeline-section {
-  padding: var(--spacing-md) 0;
-  background-color: var(--container-background-color); /* Give it a card-like bg */
-  border-radius: var(--border-radius-large);
-  box-shadow: var(--shadow-soft);
-  margin-top: var(--spacing-md);
-  padding: var(--spacing-md);
+.event-timeline-section { /* Extends .card */
+  margin-bottom: var(--spacing-lg);
+  /* Padding is handled by .card */
 }
 
-.event-timeline-title {
+.event-timeline-title { /* Title specific to this section */
   font-family: var(--font-secondary);
   font-size: 1.5rem;
   font-weight: var(--font-weight-bold);
   color: var(--text-color-primary);
   margin-bottom: var(--spacing-md);
-  text-align: left; /* Align to left for a list feel */
+  /* text-align: center; /* Or left, depending on preference */
+}
+
+.event-list {
+  max-height: 400px; /* Example max height for scroll */
+  overflow-y: auto;
+  padding-right: var(--spacing-xs); /* For scrollbar spacing */
 }
 
 .event-item {
-  background-color: transparent; /* Items inherit section bg, or can be subtly different */
-  border-radius: var(--border-radius-medium);
-  /* box-shadow: var(--shadow-soft); remove individual shadow if section has one */
-  padding: var(--spacing-sm) 0; /* Vertical padding, horizontal comes from section */
-  margin-bottom: var(--spacing-sm);
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Align items to the top for multi-line text */
   gap: var(--spacing-sm);
-  border-bottom: 1px solid var(--border-color-light); /* Separator */
-  transition: background-color var(--transition-fast);
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm); /* Space between items */
+  border-radius: var(--border-radius-medium);
+  border: 1px solid var(--border-color-light);
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
 }
+
 .event-item:last-child {
-  border-bottom: none;
   margin-bottom: 0;
 }
+
 .event-item:hover {
-    background-color: rgba(var(--accent-gentle-pink-rgb), 0.1); /* Gentle hover */
+  background-color: #fcfdff; /* Very subtle hover */
+  box-shadow: var(--shadow-soft);
 }
 
-
 .event-item-icon {
-  font-size: 1.75rem; /* Slightly larger icon */
-  color: var(--accent-playful-yellow); /* Default color */
-  min-width: 30px; /* Ensure alignment */
+  font-size: 1.5rem; /* Icon size */
+  line-height: 1.2; /* Align with first line of text better */
+  margin-top: 2px; /* Fine-tune vertical alignment */
+  min-width: 28px; /* Ensure alignment */
   text-align: center;
+  transition: transform var(--transition-fast);
+}
+.event-item:hover .event-item-icon {
+    transform: scale(1.1);
 }
 
 .event-item-content {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .event-item-message {
   font-family: var(--font-primary);
-  font-size: 0.95rem;
+  font-size: 1rem; /* Slightly larger for main message */
   color: var(--text-color-primary);
-  font-weight: var(--font-weight-semibold); /* Make message slightly bolder */
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-xs); /* Space between message and details */
+  line-height: 1.4;
 }
-.event-item-details { /* For sub-messages or extra context */
+
+.event-item-details {
   font-family: var(--font-primary);
   font-size: 0.85rem;
   color: var(--text-color-secondary);
+  line-height: 1.5;
 }
-
 
 .event-item-timestamp {
   font-family: var(--font-primary);
   font-size: 0.8rem;
   color: var(--text-color-secondary);
   white-space: nowrap;
-  margin-left: auto; /* Push timestamp to the right */
-  padding-left: var(--spacing-sm);
+  margin-left: var(--spacing-sm); /* Give it some space from content */
+  padding-top: 2px; /* Align with message text */
 }
 
-/* Styles for different event types */
+/* Type-specific styling */
 .event-item.alert {
-  /* background-color: #fff0f3; /* Light pinkish for alerts */
   border-left: 4px solid var(--accent-gentle-pink);
-  padding-left: calc(var(--spacing-sm) - 4px);
+  background-color: rgba(var(--accent-gentle-pink-rgb), 0.05); /* Very light pink bg */
 }
 .event-item.alert .event-item-icon {
   color: var(--accent-gentle-pink);
 }
 
 .event-item.tip {
-  /* background-color: #fff9e6; /* Light yellowish for tips */
   border-left: 4px solid var(--accent-playful-yellow);
-  padding-left: calc(var(--spacing-sm) - 4px);
+  background-color: rgba(255, 245, 186, 0.1); /* Very light yellow bg for tips */
 }
 .event-item.tip .event-item-icon {
   color: var(--accent-playful-yellow);
 }
 
+.event-item.log {
+  border-left: 4px solid var(--accent-calm-green);
+}
 .event-item.log .event-item-icon {
-  color: var(--accent-calm-green); /* Green for positive logs */
+  color: var(--accent-calm-green);
 }
 
 
