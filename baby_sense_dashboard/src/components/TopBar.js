@@ -20,14 +20,16 @@ function TopBar() {
       </div>
       <div className="top-bar-actions">
         {/* Placeholder for Parental Settings/Account Icon */}
-        <button className="settings-button" title="Settings">
+        <button className="settings-button" title="Settings" onClick={() => console.log('Settings clicked')}>
           <span className="icon">⚙️</span>
           {/* <span className="settings-button-text">Settings</span> */}
         </button>
-        {/* Placeholder for Profile Module Icon/Button */}
-        <button className="profile-button" title="Profile">
+        {/* Profile Button to toggle Profile Module (conceptual) */}
+        <button className="profile-button" title="View Profile" onClick={() => console.log('Profile button clicked - toggle ProfileModule here')}>
             <span className="icon">👤</span>
         </button>
+        {/* Conceptual: ProfileModule could be rendered here conditionally */}
+        {/* {isProfileModuleOpen && <ProfileModule />} */}
       </div>
     </header>
   );
