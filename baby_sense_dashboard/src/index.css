@@ -1,19 +1,36 @@
-/* Base resets and coding styles */
-* {
+/* Base resets and coding styles for BabySense */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  font-size: 16px; /* Base font size */
+}
+
 body {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Nunito Sans', 'Quicksand', sans-serif; /* Primary font from blueprint */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--primary-background-color, #E0F0FF); /* Fallback color */
-  color: var(--text-color-primary, #4F4F4F); /* Fallback color */
+  background-color: var(--primary-background-color, #E0F0FF); /* Default from blueprint */
+  color: var(--text-color-primary, #4F4F4F); /* Default from blueprint */
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* General link styling */
+a {
+  color: var(--accent-gentle-pink, #FFD6E7);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
