@@ -792,3 +792,71 @@ p {
   text-decoration: underline;
   color: var(--accent-gentle-pink); /* Use an accent color for hover */
 }
+
+/* Profile Module Styles (Placeholder) */
+.profile-module { /* Extends .card */
+  /* Position this likely in the TopBar or a dedicated settings area */
+  /* For now, basic card styling will apply */
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+.profile-module-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.profile-avatar {
+  font-size: 3rem; /* Large avatar */
+  background-color: var(--accent-soft-blue);
+  color: var(--accent-warm-peach);
+  border-radius: var(--border-radius-circle);
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-sm);
+  box-shadow: var(--shadow-soft);
+}
+
+.profile-name {
+  font-family: var(--font-secondary);
+  font-size: 1.25rem;
+  color: var(--text-color-primary);
+  margin: 0;
+}
+
+.profile-actions {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--spacing-sm) 0;
+}
+
+.profile-actions li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.btn-link { /* Basic link-styled button */
+  background: none;
+  border: none;
+  color: var(--accent-gentle-pink);
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  text-decoration: none;
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+  color: var(--text-color-primary);
+}
+
+.profile-status-placeholder {
+  font-size: 0.8rem;
+  color: var(--text-color-secondary);
+  margin-top: var(--spacing-sm);
+}
