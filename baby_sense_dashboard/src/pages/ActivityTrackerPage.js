@@ -3,27 +3,52 @@ import React from 'react';
 // PUBLIC_INTERFACE
 function ActivityTrackerPage() {
   /**
-   * Placeholder page for Activity Tracker.
-   * This page will display detailed information and logs related to baby's activity.
+   * Presents a detailed view of the baby's activity levels, developmental milestones,
+   * and play patterns.
+   * Features a prominent header with an icon and title.
+   * Placeholder blocks are used for future chart, log, and data integrations.
    */
   return (
     <div className="page-container">
-      <h1>Activity Tracker</h1>
-      <p>Baby's activity levels, milestones, and play time logs will be shown here.</p>
-      {/* Placeholder for activity charts and data */}
-      <div className="card" style={{ marginTop: '20px', padding: '20px' }}>
+      <header className="page-header">
+        <span className="page-icon">👣</span>
+        <h1 className="page-title-text">Activity Tracker</h1>
+      </header>
+      <p>
+        Keep track of Charlie's movements, playtime, and important developmental
+        milestones. This section offers insights into daily activity levels and
+        celebrates each new achievement.
+      </p>
+
+      <div className="placeholder-block">
         <h2>Daily Activity Levels</h2>
-        <div className="chart-placeholder" style={{ minHeight: '200px' }}>
-          Placeholder for Daily Activity Chart
-        </div>
+        <p>
+          Monitor periods of high and low activity throughout the day.
+          Understand active versus restful states.
+          (Placeholder for Daily Activity Chart/Log)
+        </p>
       </div>
-      <div className="card" style={{ marginTop: '20px', padding: '20px' }}>
-        <h2>Recent Milestones</h2>
-        <ul style={{ listStyle: 'none', padding: 0 }}>
-          <li style={{ padding: '10px', borderBottom: '1px solid #eee' }}>First Smile - Oct 20th</li>
-          <li style={{ padding: '10px', borderBottom: '1px solid #eee' }}>Rolled Over - Nov 5th</li>
-          <li style={{ padding: '10px' }}>Started Babbling - Nov 15th</li>
+
+      <div className="placeholder-block">
+        <h2>Developmental Milestones</h2>
+        <p>
+          Log and view key developmental milestones such as first smile,
+          rolling over, sitting up, and more.
+          (Placeholder for Milestones Log/Timeline)
+        </p>
+        {/* Example of how milestones might be listed - can be removed when actual component is built */}
+        <ul style={{ listStyle: 'disc', marginLeft: '20px', marginTop: '10px' }}>
+          <li>First Smile - Oct 20th (Example)</li>
+          <li>Rolled Over - Nov 5th (Example)</li>
         </ul>
+      </div>
+
+      <div className="placeholder-block">
+        <h2>Play & Interaction Patterns</h2>
+        <p>
+          Note types of play, interactions, and favorite toys or activities.
+          (Placeholder for Play Log/Notes)
+        </p>
       </div>
     </div>
   );
