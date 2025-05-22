@@ -561,47 +561,95 @@ p {
 
 /* Charts Section & Panel Styles */
 .charts-section {
-  display: flex;
-  gap: var(--spacing-md);
-  padding: var(--spacing-md) 0;
-  flex-wrap: wrap;
+  margin-bottom: var(--spacing-lg); /* Space after the section */
 }
 
-.chart-panel { /* Extends .card */
-  flex: 1;
-  min-width: calc(50% - var(--spacing-md) / 2); /* Aim for two side-by-side */
-  max-width: 100%;
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); /* Responsive grid */
+  gap: var(--spacing-md);
+}
+
+.chart-panel { /* Extends .card, specific styles here */
   display: flex;
   flex-direction: column;
-  align-items: stretch; /* Make content stretch */
-}
-@media (max-width: 992px) { /* Adjust breakpoint for single column charts */
-    .chart-panel {
-        min-width: 100%;
-    }
+  /* min-height: 350px; /* Ensure panels have a good default height */
 }
 
+.chart-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  flex-wrap: wrap; /* Allow wrapping for title and selector */
+  gap: var(--spacing-sm);
+}
 
 .chart-panel-title {
-  font-family: var(--font-secondary);
-  font-size: 1.25rem;
-  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-secondary); /* Quicksand */
+  font-size: 1.3rem; /* Clear title for each chart */
+  font-weight: var(--font-weight-bold);
   color: var(--text-color-primary);
-  margin-bottom: var(--spacing-md);
-  text-align: center;
+  margin: 0; /* Reset margin */
+  flex-grow: 1; /* Allow title to take space */
+}
+
+.timeframe-selector {
+  display: flex;
+  gap: var(--spacing-xs);
+  background-color: #f0f4f8; /* Soft background for the selector group */
+  border-radius: var(--border-radius-medium);
+  padding: var(--spacing-xs);
+}
+
+.timeframe-button {
+  font-family: var(--font-primary);
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-semibold);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border: none;
+  border-radius: var(--border-radius-small);
+  background-color: transparent;
+  color: var(--text-color-secondary);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.timeframe-button:hover {
+  background-color: var(--accent-soft-blue); /* Use a soft blue for hover */
+  color: var(--text-color-primary);
+}
+
+.timeframe-button.active {
+  background-color: var(--accent-gentle-pink);
+  color: var(--text-color-primary); /* Ensure good contrast */
+  box-shadow: 0 0 5px rgba(var(--accent-gentle-pink-rgb), 0.3);
+}
+
+.chart-area {
+  flex-grow: 1; /* Allow chart area to fill available space */
+  display: flex; /* For placeholder centering */
+  align-items: center; /* For placeholder centering */
+  justify-content: center; /* For placeholder centering */
+  min-height: 250px; /* Minimum height for chart visibility */
 }
 
 .chart-placeholder {
   width: 100%;
-  min-height: 250px; /* Increased placeholder height */
-  background-color: #f4f7fa; /* Lighter placeholder background */
+  height: 100%; /* Fill the .chart-area */
+  min-height: 250px; /* Ensure placeholder also has min height */
+  background-color: #f8fafd; /* Very light background */
   border-radius: var(--border-radius-medium);
   display: flex;
+  flex-direction: column; /* Stack text */
   align-items: center;
   justify-content: center;
   color: var(--text-color-secondary);
   font-style: italic;
-  border: 1px dashed var(--border-color-soft);
+  border: 2px dashed var(--border-color-light); /* Dashed border for placeholder */
+  padding: var(--spacing-md);
+  text-align: center;
+  font-size: 0.9rem;
 }
 
 /* Event Timeline Section & Item Styles */
