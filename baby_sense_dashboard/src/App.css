@@ -1,218 +1,449 @@
-/* BabySense Theme Variables */
+/* BabySense Theme Variables - UI Blueprint v1.0 */
 :root {
+  /* Core Colors */
   --primary-background-color: #E0F0FF; /* Soft Pastel Blue */
+  /* --primary-background-color-alt: #DFF2E8; */ /* Light Mint - Alternative */
   --container-background-color: #FFFFFF; /* White */
+  --text-color-primary: #4F4F4F; /* Dark Gray */
+  --text-color-secondary: #828282; /* Medium Gray */
+
+  /* Accent Colors */
   --accent-gentle-pink: #FFD6E7;
   --accent-warm-peach: #FFE0CC;
   --accent-playful-yellow: #FFF5BA;
-  --text-color-primary: #4F4F4F; /* Dark Gray */
-  --text-color-secondary: #828282; /* Medium Gray */
-  --border-color-soft: rgba(0, 0, 0, 0.08);
+  --accent-soft-blue: #C9E4FF; /* For subtle highlights or backgrounds */
+  --accent-calm-green: #D4F0E0; /* For positive indicators */
+
+  /* Shadows & Borders */
   --shadow-soft: 0px 4px 12px rgba(0, 0, 0, 0.05);
-  --border-radius-medium: 12px;
-  --border-radius-large: 16px;
+  --shadow-medium: 0px 6px 16px rgba(0, 0, 0, 0.07);
+  --shadow-focus: 0 0 0 3px rgba(var(--accent-gentle-pink-rgb), 0.5); /* For focus rings, needs RGB version of pink */
+  --border-color-soft: rgba(79, 79, 79, 0.15); /* Softer than pure black */
+  --border-color-light: rgba(0, 0, 0, 0.08); /* Lighter for subtle dividers */
+
+  /* Typography */
+  --font-primary: 'Nunito Sans', 'Quicksand', sans-serif;
+  --font-secondary: 'Quicksand', sans-serif; /* For playful titles or accents */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Spacing & Sizing */
+  --spacing-unit: 8px;
+  --spacing-xs: var(--spacing-unit);      /* 8px */
+  --spacing-sm: calc(var(--spacing-unit) * 2);  /* 16px */
+  --spacing-md: calc(var(--spacing-unit) * 3);  /* 24px */
+  --spacing-lg: calc(var(--spacing-unit) * 4);  /* 32px */
+  --spacing-xl: calc(var(--spacing-unit) * 6);  /* 48px */
+
+  /* Borders */
+  --border-radius-small: 4px;
+  --border-radius-medium: 12px; /* From blueprint */
+  --border-radius-large: 16px;  /* From blueprint */
+  --border-radius-circle: 50%;
+
+  /* Transitions */
+  --transition-fast: all 0.15s ease-in-out;
+  --transition-smooth: all 0.3s ease-in-out;
+
+  /* RGB versions for rgba() usage, e.g., focus rings */
+  --accent-gentle-pink-rgb: 255, 214, 231;
 }
 
-body {
-  margin: 0;
-  font-family: 'Nunito Sans', sans-serif; /* As per UI Blueprint */
-  background-color: var(--primary-background-color);
-  color: var(--text-color-primary);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+/* General Layout & App Shell */
 .app-shell {
+  display: flex;
   min-height: 100vh;
+  background-color: var(--primary-background-color);
+}
+
+.sidebar {
+  width: 260px; /* Fixed width for sidebar */
+  background-color: var(--accent-soft-blue); /* Softer blue for sidebar */
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-medium);
+  z-index: 100;
+  transition: width 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
 }
 
-/* General Container Styling */
-.content-container {
-  width: 100%;
-  max-width: 1200px; /* Adjust as needed for content */
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: auto; /* Allow content to scroll if it exceeds viewport */
 }
 
-/* Header Styles */
-.header {
+.top-bar {
   background-color: var(--container-background-color);
-  padding: 15px 30px; /* Increased padding */
+  padding: var(--spacing-sm) var(--spacing-md);
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-shadow: var(--shadow-soft);
-  height: 70px; /* Approx 60-72px */
+  height: 70px; /* As per blueprint */
+  border-bottom: 1px solid var(--border-color-light);
+  position: sticky; /* Keep top bar visible on scroll */
+  top: 0;
+  z-index: 90;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: var(--spacing-md); /* Default padding for content area */
+  overflow-x: hidden; /* Prevent horizontal scroll within content */
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary); /* Quicksand for headings */
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color-primary);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.3;
+}
+
+h1 { font-size: 2.25rem; } /* ~36px */
+h2 { font-size: 1.75rem; } /* ~28px */
+h3 { font-size: 1.375rem; } /* ~22px */
+h4 { font-size: 1.125rem; } /* ~18px */
+
+p {
+  font-family: var(--font-primary);
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-color-secondary);
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--container-background-color);
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow-soft);
+  padding: var(--spacing-md);
+  transition: var(--transition-smooth);
+  position: relative; /* For potential absolute positioned elements inside */
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Button Styles (Placeholder - refine as needed) */
+.btn {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-semibold);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-medium);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.btn-primary {
+  background-color: var(--accent-gentle-pink);
+  color: var(--text-color-primary); /* Ensure contrast */
+}
+
+.btn-primary:hover {
+  filter: brightness(0.95);
+}
+
+/* Icon Styling Placeholder */
+.icon {
+  display: inline-block;
+  font-size: 1.5rem; /* Default icon size */
+  line-height: 1; /* Prevent extra space */
+  transition: transform 0.2s ease-in-out;
+}
+
+.icon-spin:hover {
+    transform: rotate(360deg);
+    transition: transform 0.5s ease-out;
+}
+
+
+/* Micro-animations and transitions */
+.fade-in {
+  animation: fadeInAnimation 0.5s ease-in-out;
+}
+
+@keyframes fadeInAnimation {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pulse-alert {
+  animation: pulseAnimation 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseAnimation {
+  0% { box-shadow: 0 0 0 0 rgba(var(--accent-gentle-pink-rgb), 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(var(--accent-gentle-pink-rgb), 0); }
+  100% { box-shadow: 0 0 0 0 rgba(var(--accent-gentle-pink-rgb), 0); }
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.p-md { padding: var(--spacing-md); }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px; /* Collapsed sidebar width */
+  }
+  .sidebar.expanded { /* Add a class to expand it if needed */
+    width: 240px;
+  }
+  .main-content {
+    padding: var(--spacing-sm);
+  }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  .quick-glance-section, .charts-section {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  .stats-card, .chart-panel {
+    min-width: 100%;
+  }
+}
+
+
+/* Header Styles (Legacy - will be replaced/merged into .top-bar) */
+/* Keep for now for components that might still use it, then remove */
+.header {
+  background-color: var(--container-background-color);
+  padding: 15px 30px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-soft);
+  height: 70px; 
   border-bottom: 1px solid var(--border-color-soft);
 }
 
 .header-title {
-  font-size: 1.75rem; /* Friendly and slightly larger */
-  font-weight: 700; /* Nunito Sans bold is nice */
+  font-family: var(--font-secondary);
+  font-size: 1.75rem; 
+  font-weight: var(--font-weight-bold);
   color: var(--text-color-primary);
-}
-
-.settings-icon-placeholder {
-  font-size: 1.5rem; /* Placeholder for icon */
-  color: var(--text-color-secondary);
-  cursor: pointer;
 }
 
 /* Quick Glance Section & Stats Card Styles */
 .quick-glance-section {
   display: flex;
-  gap: 20px;
-  padding: 20px 0;
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
-  justify-content: center; /* Center cards if they wrap */
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) 0; /* Adjusted padding */
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Align cards to start */
 }
 
-.stats-card {
-  background-color: var(--container-background-color);
-  border-radius: var(--border-radius-large); /* 16px */
-  box-shadow: var(--shadow-soft);
-  padding: 25px; /* Generous padding */
+.stats-card { /* Extends .card */
   text-align: center;
-  flex: 1; /* Allow cards to grow */
-  min-width: 220px; /* Minimum width before wrapping */
-  max-width: 280px; /* Maximum width */
+  flex: 1;
+  min-width: 200px; /* Slightly smaller min-width */
+  max-width: 260px;
+  padding: var(--spacing-md);
 }
 
 .stats-card-icon {
-  font-size: 2.5rem; /* Large playful icon placeholder */
-  margin-bottom: 10px;
-  color: var(--accent-warm-peach); /* Example accent */
+  font-size: 3rem; /* Larger icon */
+  margin-bottom: var(--spacing-sm);
+  color: var(--accent-warm-peach); /* Default color */
+  line-height: 1;
 }
 
 .stats-card-title {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-family: var(--font-secondary);
+  font-size: 1.1rem; /* Using Quicksand if set for headings */
+  font-weight: var(--font-weight-semibold);
   color: var(--text-color-primary);
-  margin-bottom: 5px;
+  margin-bottom: var(--spacing-xs);
 }
 
 .stats-card-stat {
-  font-size: 2.2rem; /* Large, clear stat */
-  font-weight: 700;
+  font-family: var(--font-primary);
+  font-size: 2rem; /* Slightly smaller for balance */
+  font-weight: var(--font-weight-bold);
   color: var(--text-color-primary);
-  margin-bottom: 5px;
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.2;
 }
 
 .stats-card-subtext {
-  font-size: 0.9rem;
+  font-family: var(--font-primary);
+  font-size: 0.875rem; /* ~14px */
   color: var(--text-color-secondary);
 }
 
 /* Charts Section & Panel Styles */
 .charts-section {
   display: flex;
-  gap: 20px;
-  padding: 20px 0;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) 0;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
-.chart-panel {
-  background-color: var(--container-background-color);
-  border-radius: var(--border-radius-large);
-  box-shadow: var(--shadow-soft);
-  padding: 20px;
+.chart-panel { /* Extends .card */
   flex: 1;
-  min-width: 300px; /* Min width before wrapping/stacking */
+  min-width: calc(50% - var(--spacing-md) / 2); /* Aim for two side-by-side */
+  max-width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch; /* Make content stretch */
+}
+@media (max-width: 992px) { /* Adjust breakpoint for single column charts */
+    .chart-panel {
+        min-width: 100%;
+    }
 }
 
+
 .chart-panel-title {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-family: var(--font-secondary);
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-semibold);
   color: var(--text-color-primary);
-  margin-bottom: 15px;
+  margin-bottom: var(--spacing-md);
+  text-align: center;
 }
 
 .chart-placeholder {
   width: 100%;
-  height: 200px; /* Placeholder height */
-  background-color: #f0f0f0; /* Light gray for placeholder area */
+  min-height: 250px; /* Increased placeholder height */
+  background-color: #f4f7fa; /* Lighter placeholder background */
   border-radius: var(--border-radius-medium);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text-color-secondary);
+  font-style: italic;
+  border: 1px dashed var(--border-color-soft);
 }
 
 /* Event Timeline Section & Item Styles */
 .event-timeline-section {
-  padding: 20px 0;
+  padding: var(--spacing-md) 0;
+  background-color: var(--container-background-color); /* Give it a card-like bg */
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow-soft);
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
 }
 
 .event-timeline-title {
+  font-family: var(--font-secondary);
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: var(--font-weight-bold);
   color: var(--text-color-primary);
-  margin-bottom: 15px;
-  text-align: center;
+  margin-bottom: var(--spacing-md);
+  text-align: left; /* Align to left for a list feel */
 }
 
 .event-item {
-  background-color: var(--container-background-color);
+  background-color: transparent; /* Items inherit section bg, or can be subtly different */
   border-radius: var(--border-radius-medium);
-  box-shadow: var(--shadow-soft);
-  padding: 15px;
-  margin-bottom: 10px;
+  /* box-shadow: var(--shadow-soft); remove individual shadow if section has one */
+  padding: var(--spacing-sm) 0; /* Vertical padding, horizontal comes from section */
+  margin-bottom: var(--spacing-sm);
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-color-light); /* Separator */
+  transition: background-color var(--transition-fast);
+}
+.event-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+.event-item:hover {
+    background-color: rgba(var(--accent-gentle-pink-rgb), 0.1); /* Gentle hover */
 }
 
+
 .event-item-icon {
-  font-size: 1.5rem; /* Placeholder */
-  color: var(--accent-playful-yellow); /* Example */
+  font-size: 1.75rem; /* Slightly larger icon */
+  color: var(--accent-playful-yellow); /* Default color */
+  min-width: 30px; /* Ensure alignment */
+  text-align: center;
+}
+
+.event-item-content {
+    flex-grow: 1;
 }
 
 .event-item-message {
-  flex-grow: 1;
+  font-family: var(--font-primary);
   font-size: 0.95rem;
   color: var(--text-color-primary);
+  font-weight: var(--font-weight-semibold); /* Make message slightly bolder */
 }
-
-.event-item-timestamp {
+.event-item-details { /* For sub-messages or extra context */
+  font-family: var(--font-primary);
   font-size: 0.85rem;
   color: var(--text-color-secondary);
-  white-space: nowrap;
 }
+
+
+.event-item-timestamp {
+  font-family: var(--font-primary);
+  font-size: 0.8rem;
+  color: var(--text-color-secondary);
+  white-space: nowrap;
+  margin-left: auto; /* Push timestamp to the right */
+  padding-left: var(--spacing-sm);
+}
+
+/* Styles for different event types */
+.event-item.alert {
+  /* background-color: #fff0f3; /* Light pinkish for alerts */
+  border-left: 4px solid var(--accent-gentle-pink);
+  padding-left: calc(var(--spacing-sm) - 4px);
+}
+.event-item.alert .event-item-icon {
+  color: var(--accent-gentle-pink);
+}
+
+.event-item.tip {
+  /* background-color: #fff9e6; /* Light yellowish for tips */
+  border-left: 4px solid var(--accent-playful-yellow);
+  padding-left: calc(var(--spacing-sm) - 4px);
+}
+.event-item.tip .event-item-icon {
+  color: var(--accent-playful-yellow);
+}
+
+.event-item.log .event-item-icon {
+  color: var(--accent-calm-green); /* Green for positive logs */
+}
+
 
 /* Footer Styles */
 .footer {
   text-align: center;
-  padding: 25px 20px;
-  margin-top: auto; /* Pushes footer to bottom */
-  font-size: 0.9rem;
+  padding: var(--spacing-md) var(--spacing-sm);
+  margin-top: auto;
+  font-size: 0.875rem;
   color: var(--text-color-secondary);
-  background-color: var(--primary-background-color); /* Consistent with app shell */
-  border-top: 1px solid var(--border-color-soft);
+  background-color: transparent; /* Transparent or match primary background */
+  border-top: 1px solid var(--border-color-light);
 }
 
 .footer-links a {
   color: var(--text-color-secondary);
   text-decoration: none;
-  margin: 0 8px;
+  margin: 0 var(--spacing-xs);
+  transition: color var(--transition-fast);
 }
 
 .footer-links a:hover {
   text-decoration: underline;
   color: var(--text-color-primary);
-}
-
-/* Remove KAVIA specific styles if they were here */
-/* e.g., .navbar, .logo, .hero, .title, .description, .btn, etc. */
-/* Ensure these are not present or are overridden */
-
-/* Add any missing styles for typography, specific component needs based on blueprint */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Nunito Sans', sans-serif; /* Ensure headings also use the font */
 }
