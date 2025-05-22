@@ -860,3 +860,71 @@ p {
   color: var(--text-color-secondary);
   margin-top: var(--spacing-sm);
 }
+
+/* Alerts Area Styles (Placeholder) */
+.alerts-area-container {
+  padding: var(--spacing-sm) 0; /* Add some vertical spacing if there are alerts */
+  /* Position this where appropriate, e.g., below TopBar or at the top of MainContent */
+}
+
+.alert-banner {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-medium);
+  margin-bottom: var(--spacing-sm);
+  box-shadow: var(--shadow-soft);
+  color: var(--text-color-primary); /* Default text color */
+}
+
+.alert-icon {
+  font-size: 1.5rem;
+  margin-right: var(--spacing-sm);
+}
+
+.alert-message {
+  flex-grow: 1;
+  margin: 0; /* Reset paragraph margin */
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.alert-dismiss-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-color-secondary);
+  cursor: pointer;
+  padding: 0 var(--spacing-xs);
+  line-height: 1;
+}
+.alert-dismiss-btn:hover {
+  color: var(--text-color-primary);
+}
+
+/* Alert types styling */
+.alert-banner.alert-critical {
+  background-color: var(--accent-gentle-pink); /* Stronger for critical */
+  /* color: #fff; /* Consider white text for darker backgrounds */
+  border-left: 5px solid #d13065; /* Darker pink for emphasis */
+}
+.alert-banner.alert-critical .alert-icon {
+  color: #d13065;
+}
+
+
+.alert-banner.alert-warning {
+  background-color: var(--accent-playful-yellow);
+  border-left: 5px solid #c7a003; /* Darker yellow */
+}
+.alert-banner.alert-warning .alert-icon {
+  color: #c7a003;
+}
+
+.alert-banner.alert-info {
+  background-color: var(--accent-soft-blue);
+  border-left: 5px solid #5897fb; /* Darker blue */
+}
+.alert-banner.alert-info .alert-icon {
+  color: #5897fb;
+}
