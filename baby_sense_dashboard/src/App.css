@@ -67,16 +67,131 @@
   background-color: var(--primary-background-color);
 }
 
+/* Sidebar Styles */
 .sidebar {
-  width: 260px; /* Fixed width for sidebar */
-  background-color: var(--accent-soft-blue); /* Softer blue for sidebar */
-  padding: var(--spacing-md);
-  box-shadow: var(--shadow-medium);
-  z-index: 100;
-  transition: width 0.3s ease-in-out;
+  width: var(--sidebar-width);
+  background-color: var(--sidebar-background);
+  padding: var(--spacing-md) 0; /* Adjusted padding */
+  box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+  z-index: 1000; /* Ensure sidebar is above other content */
+  transition: width var(--transition-smooth);
   display: flex;
   flex-direction: column;
+  color: var(--sidebar-text-color);
+  position: fixed; /* Fixed position */
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto; /* Allow scrolling if content overflows */
 }
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md);
+  border-bottom: 1px solid var(--border-color-light);
+  margin-bottom: var(--spacing-sm);
+}
+
+.sidebar-logo-icon {
+  font-size: 2.5rem; /* Larger logo icon */
+  color: var(--accent-gentle-pink);
+}
+
+.sidebar-title {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem; /* Quicksand, Bold */
+  color: var(--text-color-primary);
+  margin: 0; /* Reset margin for h1 */
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1; /* Allow list to take available space */
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin: var(--spacing-xs) 0;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+  border-left: 4px solid transparent; /* For active indicator */
+  color: var(--sidebar-text-color);
+}
+
+.nav-item:hover {
+  background-color: var(--sidebar-active-background);
+  color: var(--text-color-primary); /* Darker text on hover */
+}
+
+.nav-item.active {
+  background-color: var(--sidebar-active-background);
+  border-left-color: var(--sidebar-active-indicator);
+  color: var(--text-color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.nav-item.active .nav-icon {
+  color: var(--sidebar-active-indicator); /* Match icon to indicator */
+}
+
+.nav-icon {
+  font-size: 1.5rem; /* Consistent icon size */
+  margin-right: var(--spacing-sm);
+  color: var(--sidebar-icon-color); /* Default icon color */
+  transition: color var(--transition-fast);
+  min-width: 24px; /* For alignment */
+  text-align: center;
+}
+
+.nav-text {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: var(--font-weight-semibold);
+}
+
+.sidebar-footer {
+  padding: var(--spacing-md);
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-color-secondary);
+  border-top: 1px solid var(--border-color-light);
+  margin-top: auto; /* Pushes footer to bottom of sidebar */
+}
+
+.sidebar.collapsed {
+  width: var(--sidebar-width-collapsed);
+}
+
+.sidebar.collapsed .sidebar-title,
+.sidebar.collapsed .nav-text,
+.sidebar.collapsed .sidebar-footer p {
+  display: none; /* Hide text when collapsed */
+}
+
+.sidebar.collapsed .sidebar-header {
+  justify-content: center;
+  padding: 0 var(--spacing-sm) var(--spacing-md) var(--spacing-sm);
+}
+.sidebar.collapsed .sidebar-logo-icon {
+  margin-right: 0;
+}
+
+.sidebar.collapsed .nav-item {
+  justify-content: center;
+  padding: var(--spacing-sm);
+}
+
+.sidebar.collapsed .nav-icon {
+  margin-right: 0;
+  font-size: 1.75rem; /* Slightly larger icons when collapsed */
+}
+
 
 .main-layout {
   display: flex;
