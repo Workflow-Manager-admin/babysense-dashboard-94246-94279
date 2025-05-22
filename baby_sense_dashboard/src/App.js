@@ -1,35 +1,28 @@
 import React from 'react';
-import './App.css';
+import './App.css'; // Main styles including theme
+import Header from './components/Header';
+import QuickGlanceSection from './components/QuickGlanceSection';
+import ChartsSection from './components/ChartsSection';
+import EventTimelineSection from './components/EventTimelineSection';
+import Footer from './components/Footer';
 
+// PUBLIC_INTERFACE
 function App() {
+  /**
+   * Main application component for the BabySense Dashboard.
+   * It structures the dashboard with a header, quick glance stats,
+   * chart displays, an event timeline, and a footer.
+   */
   return (
-    <div className="app">
-      <nav className="navbar">
-        <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-            <div className="logo">
-              <span className="logo-symbol">*</span> KAVIA AI
-            </div>
-            <button className="btn">Template Button</button>
-          </div>
-        </div>
-      </nav>
-
+    <div className="app-shell">
+      <Header />
       <main>
-        <div className="container">
-          <div className="hero">
-            <div className="subtitle">AI Workflow Manager Template</div>
-            
-            <h1 className="title">baby_sense_dashboard</h1>
-            
-            <div className="description">
-              Start building your application.
-            </div>
-            
-            <button className="btn btn-large">Button</button>
-          </div>
-        </div>
+        {/* Content container can be applied to sections or here if all content shares same max-width */}
+        <QuickGlanceSection />
+        <ChartsSection />
+        <EventTimelineSection />
       </main>
+      <Footer />
     </div>
   );
 }
