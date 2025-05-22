@@ -140,3 +140,6 @@ ERROR in ./src/components/MainContent.js 13:0-49
 Module not found: Error: Can't resolve '../pages/SettingsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
 
 webpack compiled with 1 error
+Compiling...
+Compiled successfully!
+webpack compiled successfully
