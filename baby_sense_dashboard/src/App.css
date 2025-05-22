@@ -319,24 +319,58 @@ p {
 .p-md { padding: var(--spacing-md); }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 992px) { /* Broader breakpoint for sidebar collapse */
   .sidebar {
-    width: 70px; /* Collapsed sidebar width */
+    width: var(--sidebar-width-collapsed);
   }
-  .sidebar.expanded { /* Add a class to expand it if needed */
-    width: 240px;
+  .sidebar .sidebar-title,
+  .sidebar .nav-text,
+  .sidebar .sidebar-footer p {
+    display: none;
   }
+  .sidebar .sidebar-header {
+    justify-content: center;
+    padding: 0 var(--spacing-sm) var(--spacing-md) var(--spacing-sm);
+  }
+  .sidebar .sidebar-logo-icon {
+     margin-right: 0;
+  }
+  .sidebar .nav-item {
+    justify-content: center;
+     padding: var(--spacing-sm);
+  }
+  .sidebar .nav-icon {
+    margin-right: 0;
+    font-size: 1.75rem;
+  }
+  .main-layout {
+    margin-left: var(--sidebar-width-collapsed); /* Adjust main layout margin */
+  }
+}
+
+
+@media (max-width: 768px) {
+  /* .sidebar remains collapsed as per above */
   .main-content {
     padding: var(--spacing-sm);
   }
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
+  .top-bar {
+    padding: var(--spacing-sm) var(--spacing-sm); /* Reduced padding on small screens */
+    height: 60px;
+  }
+  .top-bar-title {
+    font-size: 1.25rem !important; /* Ensure it overrides if .header-title is still around */
+  }
+  h1 { font-size: 1.8rem; } /* Slightly smaller h1 on mobile */
+  h2 { font-size: 1.4rem; } /* Slightly smaller h2 on mobile */
+
   .quick-glance-section, .charts-section {
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md); /* Increased gap for stacking */
   }
   .stats-card, .chart-panel {
-    min-width: 100%;
+    min-width: 100%; /* Full width for cards/panels on mobile */
+    max-width: 100%;
   }
 }
 
