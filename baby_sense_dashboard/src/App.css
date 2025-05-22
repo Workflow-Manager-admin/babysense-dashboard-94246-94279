@@ -17,7 +17,7 @@
   /* Shadows & Borders */
   --shadow-soft: 0px 4px 12px rgba(0, 0, 0, 0.05);
   --shadow-medium: 0px 6px 16px rgba(0, 0, 0, 0.07);
-  --shadow-focus: 0 0 0 3px rgba(var(--accent-gentle-pink-rgb), 0.5); /* For focus rings, needs RGB version of pink */
+  --shadow-focus: 0 0 0 3px rgba(var(--accent-gentle-pink-rgb), 0.5);
   --border-color-soft: rgba(79, 79, 79, 0.15); /* Softer than pure black */
   --border-color-light: rgba(0, 0, 0, 0.08); /* Lighter for subtle dividers */
 
@@ -50,7 +50,6 @@
   --sidebar-icon-color: var(--accent-warm-peach);
   --sidebar-active-background: rgba(var(--accent-gentle-pink-rgb), 0.2);
   --sidebar-active-indicator: var(--accent-gentle-pink);
-
 
   /* Transitions */
   --transition-fast: all 0.15s ease-in-out;
@@ -192,20 +191,18 @@
   font-size: 1.75rem; /* Slightly larger icons when collapsed */
 }
 
-
 .main-layout {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   margin-left: var(--sidebar-width); /* Account for fixed sidebar */
   transition: margin-left var(--transition-smooth); 
-  overflow-y: auto; /* Already present, good */
+  overflow-y: auto;
 }
 
 .main-layout.sidebar-collapsed {
     margin-left: var(--sidebar-width-collapsed);
 }
-
 
 /* TopBar Styles */
 .top-bar {
@@ -257,7 +254,6 @@
   background-color: #e9ecef;
 }
 
-
 .top-bar-actions {
   display: flex;
   align-items: center;
@@ -293,7 +289,6 @@
   font-weight: var(--font-weight-semibold);
 }
 
-
 .main-content {
   flex-grow: 1;
   padding: var(--spacing-md); /* Default padding for content area */
@@ -328,11 +323,22 @@ p {
   padding: var(--spacing-md);
   transition: var(--transition-smooth);
   position: relative; /* For potential absolute positioned elements inside */
+  border: 1px solid transparent; /* For hover effect */
 }
 
 .card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-medium);
+}
+
+/* Clickable elements general style */
+.clickable {
+  cursor: pointer;
+}
+.clickable:focus-visible { /* For keyboard navigation */
+  outline: 2px solid var(--accent-gentle-pink);
+  outline-offset: 2px;
+  box-shadow: var(--shadow-focus); /* Using the defined focus shadow */
 }
 
 /* Button Styles (Placeholder - refine as needed) */
@@ -371,7 +377,6 @@ p {
     transition: transform 0.5s ease-out;
 }
 
-
 /* Micro-animations and transitions */
 .fade-in {
   animation: fadeInAnimation 0.5s ease-in-out;
@@ -382,7 +387,7 @@ p {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.pulse-alert {
+.pulse-alert { /* Apply to an element that needs pulsing, e.g., critical alert icon */
   animation: pulseAnimation 1.5s infinite ease-in-out;
 }
 
@@ -397,83 +402,6 @@ p {
 .mb-sm { margin-bottom: var(--spacing-sm); }
 .mb-md { margin-bottom: var(--spacing-md); }
 .p-md { padding: var(--spacing-md); }
-
-/* Responsive adjustments */
-@media (max-width: 992px) { /* Broader breakpoint for sidebar collapse */
-  .sidebar {
-    width: var(--sidebar-width-collapsed);
-  }
-  .sidebar .sidebar-title,
-  .sidebar .nav-text,
-  .sidebar .sidebar-footer p {
-    display: none;
-  }
-  .sidebar .sidebar-header {
-    justify-content: center;
-    padding: 0 var(--spacing-sm) var(--spacing-md) var(--spacing-sm);
-  }
-  .sidebar .sidebar-logo-icon {
-     margin-right: 0;
-  }
-  .sidebar .nav-item {
-    justify-content: center;
-     padding: var(--spacing-sm);
-  }
-  .sidebar .nav-icon {
-    margin-right: 0;
-    font-size: 1.75rem;
-  }
-  .main-layout {
-    margin-left: var(--sidebar-width-collapsed); /* Adjust main layout margin */
-  }
-}
-
-
-@media (max-width: 768px) {
-  /* .sidebar remains collapsed as per above */
-  .main-content {
-    padding: var(--spacing-sm);
-  }
-  .top-bar {
-    padding: var(--spacing-sm) var(--spacing-sm); /* Reduced padding on small screens */
-    height: 60px;
-  }
-  .top-bar-title {
-    font-size: 1.25rem !important; /* Ensure it overrides if .header-title is still around */
-  }
-  h1 { font-size: 1.8rem; } /* Slightly smaller h1 on mobile */
-  h2 { font-size: 1.4rem; } /* Slightly smaller h2 on mobile */
-
-  .quick-glance-section, .charts-section {
-    flex-direction: column;
-    gap: var(--spacing-md); /* Increased gap for stacking */
-  }
-  .stats-card, .chart-panel {
-    min-width: 100%; /* Full width for cards/panels on mobile */
-    max-width: 100%;
-  }
-}
-
-
-/* Header Styles (Legacy - will be replaced/merged into .top-bar) */
-/* Keep for now for components that might still use it, then remove */
-.header {
-  background-color: var(--container-background-color);
-  padding: 15px 30px; 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: var(--shadow-soft);
-  height: 70px; 
-  border-bottom: 1px solid var(--border-color-soft);
-}
-
-.header-title {
-  font-family: var(--font-secondary);
-  font-size: 1.75rem; 
-  font-weight: var(--font-weight-bold);
-  color: var(--text-color-primary);
-}
 
 /* Quick Glance Section & Stats Card Styles */
 .quick-glance-section {
@@ -491,7 +419,6 @@ p {
   display: inline-block; /* To make border only as wide as text */
 }
 
-
 .stats-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive grid */
@@ -503,13 +430,11 @@ p {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: var(--spacing-md); /* Already on .card but can be adjusted */
 }
 
-.stats-card:hover {
-  border-color: var(--accent-gentle-pink); /* Add a subtle border highlight on hover */
+.stats-card.clickable:hover { /* From .card:hover + specific */
+  border-color: var(--accent-gentle-pink);
 }
-
 
 .stats-card-icon-wrapper {
   margin-bottom: var(--spacing-sm);
@@ -524,7 +449,7 @@ p {
     transform: scale(1.1); /* Slightly enlarge icon wrapper on hover */
 }
 
-.stats-card-icon { /* Styling for the icon itself if needed */
+.stats-card-icon { /* Styling for the icon itself */
   font-size: 2.5rem; /* Base size */
   line-height: 1;
 }
@@ -573,7 +498,6 @@ p {
 .chart-panel { /* Extends .card, specific styles here */
   display: flex;
   flex-direction: column;
-  /* min-height: 350px; /* Ensure panels have a good default height */
 }
 
 .chart-panel-header {
@@ -655,7 +579,6 @@ p {
 /* Event Timeline Section & Item Styles */
 .event-timeline-section { /* Extends .card */
   margin-bottom: var(--spacing-lg);
-  /* Padding is handled by .card */
 }
 
 .event-timeline-title { /* Title specific to this section */
@@ -664,7 +587,6 @@ p {
   font-weight: var(--font-weight-bold);
   color: var(--text-color-primary);
   margin-bottom: var(--spacing-md);
-  /* text-align: center; /* Or left, depending on preference */
 }
 
 .event-list {
@@ -688,7 +610,7 @@ p {
   margin-bottom: 0;
 }
 
-.event-item:hover {
+.event-item.clickable:hover {
   background-color: #fcfdff; /* Very subtle hover */
   box-shadow: var(--shadow-soft);
 }
@@ -701,7 +623,7 @@ p {
   text-align: center;
   transition: transform var(--transition-fast);
 }
-.event-item:hover .event-item-icon {
+.event-item.clickable:hover .event-item-icon {
     transform: scale(1.1);
 }
 
@@ -758,7 +680,6 @@ p {
   color: var(--accent-calm-green);
 }
 
-
 /* Footer Styles */
 .footer {
   text-align: center;
@@ -795,8 +716,6 @@ p {
 
 /* Profile Module Styles (Placeholder) */
 .profile-module { /* Extends .card */
-  /* Position this likely in the TopBar or a dedicated settings area */
-  /* For now, basic card styling will apply */
   padding: var(--spacing-md);
   text-align: center;
 }
@@ -863,8 +782,8 @@ p {
 
 /* Alerts Area Styles (Placeholder) */
 .alerts-area-container {
-  padding: var(--spacing-sm) 0; /* Add some vertical spacing if there are alerts */
-  /* Position this where appropriate, e.g., below TopBar or at the top of MainContent */
+  padding: var(--spacing-sm) 0;
+  margin-bottom: var(--spacing-md); /* Space below alerts */
 }
 
 .alert-banner {
@@ -874,7 +793,7 @@ p {
   border-radius: var(--border-radius-medium);
   margin-bottom: var(--spacing-sm);
   box-shadow: var(--shadow-soft);
-  color: var(--text-color-primary); /* Default text color */
+  color: var(--text-color-primary);
 }
 
 .alert-icon {
@@ -884,7 +803,7 @@ p {
 
 .alert-message {
   flex-grow: 1;
-  margin: 0; /* Reset paragraph margin */
+  margin: 0;
   font-family: var(--font-primary);
   font-weight: var(--font-weight-semibold);
 }
@@ -904,14 +823,12 @@ p {
 
 /* Alert types styling */
 .alert-banner.alert-critical {
-  background-color: var(--accent-gentle-pink); /* Stronger for critical */
-  /* color: #fff; /* Consider white text for darker backgrounds */
+  background-color: var(--accent-gentle-pink);
   border-left: 5px solid #d13065; /* Darker pink for emphasis */
 }
 .alert-banner.alert-critical .alert-icon {
   color: #d13065;
 }
-
 
 .alert-banner.alert-warning {
   background-color: var(--accent-playful-yellow);
@@ -927,4 +844,94 @@ p {
 }
 .alert-banner.alert-info .alert-icon {
   color: #5897fb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) { /* Broader breakpoint for sidebar collapse */
+  .sidebar {
+    width: var(--sidebar-width-collapsed);
+  }
+  .sidebar .sidebar-title,
+  .sidebar .nav-text,
+  .sidebar .sidebar-footer p {
+    display: none;
+  }
+  .sidebar .sidebar-header {
+    justify-content: center;
+    padding: 0 var(--spacing-sm) var(--spacing-md) var(--spacing-sm);
+  }
+  .sidebar .sidebar-logo-icon {
+     margin-right: 0;
+  }
+  .sidebar .nav-item {
+    justify-content: center;
+     padding: var(--spacing-sm);
+  }
+  .sidebar .nav-icon {
+    margin-right: 0;
+    font-size: 1.75rem;
+  }
+  .main-layout {
+    margin-left: var(--sidebar-width-collapsed); /* Adjust main layout margin */
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: var(--spacing-sm);
+  }
+  .top-bar {
+    padding: var(--spacing-sm) var(--spacing-sm); /* Reduced padding on small screens */
+    height: 60px;
+  }
+  .top-bar-title {
+    font-size: 1.25rem !important;
+  }
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.4rem; }
+
+  .stats-card-grid {
+    grid-template-columns: 1fr; /* Stack cards on small screens */
+    gap: var(--spacing-md);
+  }
+  .charts-grid {
+    grid-template-columns: 1fr; /* Stack charts on small screens */
+    gap: var(--spacing-md);
+  }
+  .stats-card, .chart-panel {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .section-title {
+    font-size: 1.5rem; /* Slightly smaller section titles */
+  }
+  .event-item {
+    flex-direction: column; /* Stack event item content on small screens */
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+  }
+  .event-item-timestamp {
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: var(--spacing-xs);
+  }
+}
+
+/* Legacy Header Styles (to be removed if .header class is fully purged) */
+.header {
+  background-color: var(--container-background-color);
+  padding: 15px 30px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-soft);
+  height: 70px; 
+  border-bottom: 1px solid var(--border-color-soft);
+}
+
+.header-title {
+  font-family: var(--font-secondary);
+  font-size: 1.75rem; 
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color-primary);
 }
