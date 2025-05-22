@@ -20,7 +20,7 @@ function EventTimelineSection() {
       <div className="event-list">
         <EventItem
           type="alert"
-          icon="🔔" // Custom icon overrides default for type
+          icon="🌡️" // Thermometer for temperature alert
           message="Room temperature is a bit warm (24°C)."
           details="Consider adjusting the thermostat or ventilation."
           timestamp="Just now"
@@ -28,6 +28,7 @@ function EventTimelineSection() {
         />
         <EventItem
           type="tip"
+          icon="💡" // Lightbulb for tip
           message="White noise can help soothe Charlie during naptime."
           details="Explore different sounds in the 'Soothing Sounds' section."
           timestamp="10m ago"
@@ -35,27 +36,27 @@ function EventTimelineSection() {
         />
         <EventItem
           type="log"
-          icon="Diaper icon" // Placeholder, replace with actual icon later e.g. 💩 or SVG
+          icon="👶" // Baby icon for diaper change (generic log)
           message="Diaper change logged."
           details="Type: Wet, Notes: Standard"
           timestamp="35m ago"
         />
         <EventItem
           type="alert"
-          icon="✨" // Using blueprint example
+          icon="🤸" // Activity icon
           message="High activity detected! Charlie might be awake."
           timestamp="1h ago"
           onClick={() => handleEventClick("Activity Alert")}
         />
         <EventItem
           type="log"
-          icon="🍼" // Bottle icon
+          icon="🍼" // Bottle icon for feeding
           message="Feeding logged: 120ml Formula"
           timestamp="2h ago"
         />
         <EventItem
           type="alert"
-          icon="🔊" // Sound wave icon
+          icon="😢" // Crying face for sound alert
           message="Crying detected. Checking in might be good."
           details="Sound level: Moderate"
           timestamp="2h 5m ago"
