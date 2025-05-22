@@ -51,3 +51,4 @@ ERROR in ./src/App.js 6:0-41
 Module not found: Error: Can't resolve './components/Header' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src'
 
 webpack compiled with 1 error
+Compiling...

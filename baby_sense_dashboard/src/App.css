@@ -198,9 +198,14 @@
   flex-direction: column;
   flex-grow: 1;
   margin-left: var(--sidebar-width); /* Account for fixed sidebar */
-  transition: margin-left var(--transition-smooth); /* Smooth transition for sidebar collapse */
-  overflow-y: auto;
+  transition: margin-left var(--transition-smooth); 
+  overflow-y: auto; /* Already present, good */
 }
+
+.main-layout.sidebar-collapsed {
+    margin-left: var(--sidebar-width-collapsed);
+}
+
 
 /* TopBar Styles */
 .top-bar {
