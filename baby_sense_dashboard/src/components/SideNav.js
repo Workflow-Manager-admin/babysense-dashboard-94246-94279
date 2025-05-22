@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 // PUBLIC_INTERFACE
 function NavItem({ icon, text, to, isCollapsed }) {
   /**
-   * Renders a single navigation item for the SideNav using React Router's Link.
+   * Renders a single navigation item for the SideNav using React Router's NavLink.
    *
    * @param {object} props - Component props.
    * @param {string} props.icon - Icon for the navigation item.
@@ -13,14 +13,18 @@ function NavItem({ icon, text, to, isCollapsed }) {
    * @param {boolean} props.isCollapsed - Whether the sidebar is collapsed.
    */
   const location = useLocation();
-  const isActive = location.pathname === to || (to === "/" && location.pathname.startsWith("/#")); // Handles base path and potential hash routes for dashboard
+  // The active state will be primarily determined by NavLink's own `activeClassName` or `style` prop,
+  // but we can also rely on CSS targeting `li.nav-item.active` if NavLink adds a class to the `a` tag.
+  // For this implementation, we keep the `li` active class logic for CSS compatibility.
+  const isActive = location.pathname === to || (to === "/" && location.pathname === "/");
+
 
   return (
     <li className={`nav-item ${isActive ? 'active' : ''}`}>
-      <Link to={to} title={text}>
+      <NavLink to={to} title={text} end={to === '/'}>
         <span className="nav-icon">{icon}</span>
         {!isCollapsed && <span className="nav-text">{text}</span>}
-      </Link>
+      </NavLink>
     </li>
   );
 }
@@ -46,10 +50,10 @@ function SideNav({ isCollapsed }) {
   return (
     <nav className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="sidebar-header">
-        <Link to="/" className="sidebar-logo-link" title="BabySense Home">
+        <NavLink to="/" className="sidebar-logo-link" title="BabySense Home">
           <span className="sidebar-logo-icon">🍼</span>
           {!isCollapsed && <h1 className="sidebar-title">BabySense</h1>}
-        </Link>
+        </NavLink>
       </div>
       <ul className="nav-list">
         {navItems.map((item) => (
