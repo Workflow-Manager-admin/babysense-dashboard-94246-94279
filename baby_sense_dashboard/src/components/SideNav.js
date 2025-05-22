@@ -28,19 +28,19 @@ function SideNav() {
   const [activeItem, setActiveItem] = React.useState('Dashboard');
 
   const navItems = [
-    { icon: '🏠', text: 'Dashboard' },
-    { icon: '🌙', text: 'Sleep Insights' },
-    { icon: '🤸', text: 'Activity Tracker' },
-    { icon: '❤️', text: 'Health Metrics' },
-    { icon: '🔔', text: 'Alerts & Log' },
-    { icon: '⚙️', text: 'Settings' },
+    { icon: '🧸', text: 'Dashboard' }, // Teddy Bear for Dashboard
+    { icon: '😴', text: 'Sleep Insights' }, // Sleeping face
+    { icon: '👣', text: 'Activity Tracker' }, // Footprints
+    { icon: '🩺', text: 'Health Metrics' }, // Stethoscope
+    { icon: '🔔', text: 'Notifications' }, // Bell
+    { icon: '⚙️', text: 'Settings' }, // Gear
   ];
 
   return (
-    <nav className="sidebar">
+    <nav className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="sidebar-header">
-        <span className="sidebar-logo-icon">👶</span>
-        <h1 className="sidebar-title">BabySense</h1>
+        <span className="sidebar-logo-icon">🍼</span> {/* Baby Bottle Logo */}
+        {!isCollapsed && <h1 className="sidebar-title">BabySense</h1>}
       </div>
       <ul className="nav-list">
         {navItems.map((item) => (

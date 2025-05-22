@@ -114,3 +114,20 @@ webpack compiled successfully
 Compiling...
 Compiled successfully!
 webpack compiled successfully
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/components/SideNav.js
+  Line 40:32:  'isCollapsed' is not defined  no-undef
+  Line 43:11:  'isCollapsed' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+ERROR in [eslint] 
+src/components/SideNav.js
+  Line 40:32:  'isCollapsed' is not defined  no-undef
+  Line 43:11:  'isCollapsed' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error
