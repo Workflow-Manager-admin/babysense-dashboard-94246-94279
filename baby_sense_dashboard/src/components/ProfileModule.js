@@ -22,7 +22,6 @@ function ProfileModule({ babyName = "Charlie", babyAvatar = "👶" }) {
         <li><button className="btn-link">Switch Baby</button></li>
         <li><button className="btn-link">Account Settings</button></li>
       </ul>
-      
       <p className="profile-status-placeholder">Device Connected: Nursery Cam</p>
     </div>
   );
