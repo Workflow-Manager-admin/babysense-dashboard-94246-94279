@@ -36,7 +36,6 @@ function ActivityTrackerPage() {
           rolling over, sitting up, and more.
           (Placeholder for Milestones Log/Timeline)
         </p>
-        
         <ul style={{ listStyle: 'disc', marginLeft: '20px', marginTop: '10px' }}>
           <li>First Smile - Oct 20th (Example)</li>
           <li>Rolled Over - Nov 5th (Example)</li>
