@@ -20,7 +20,7 @@ function StatsCard({ icon, title, stat, subtext, iconColor, cardClassName, onCli
 
   return (
     <div
-      className={`stats-card card ${cardClassName || ''}`}
+      className={`stats-card card ${cardClassName || ''} ${onClick ? 'clickable' : ''}`}
       style={cardStyle}
       onClick={onClick}
       role={onClick ? "button" : undefined}
@@ -29,7 +29,7 @@ function StatsCard({ icon, title, stat, subtext, iconColor, cardClassName, onCli
     >
       <div className="stats-card-icon-wrapper">
         <span className="stats-card-icon icon" style={{ color: iconColor || 'var(--accent-warm-peach)' }}>
-          {icon || "❓"} {/* Default placeholder icon */}
+          {icon || "❔"} {/* Question mark icon as default */}
         </span>
       </div>
       <div className="stats-card-content">
