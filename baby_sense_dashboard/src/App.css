@@ -477,49 +477,86 @@ p {
 
 /* Quick Glance Section & Stats Card Styles */
 .quick-glance-section {
-  display: flex;
+  margin-bottom: var(--spacing-lg); /* Space after the section */
+}
+
+.section-title { /* General title for sections like quick glance, charts etc. */
+  font-family: var(--font-secondary);
+  font-size: 1.75rem; /* Prominent title */
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color-primary);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--accent-gentle-pink); /* Playful underline */
+  display: inline-block; /* To make border only as wide as text */
+}
+
+
+.stats-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive grid */
   gap: var(--spacing-md);
-  padding: var(--spacing-md) 0; /* Adjusted padding */
-  flex-wrap: wrap;
-  justify-content: flex-start; /* Align cards to start */
 }
 
-.stats-card { /* Extends .card */
+.stats-card { /* Extends .card, specific styles here */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  flex: 1;
-  min-width: 200px; /* Slightly smaller min-width */
-  max-width: 260px;
-  padding: var(--spacing-md);
+  padding: var(--spacing-md); /* Already on .card but can be adjusted */
 }
 
-.stats-card-icon {
-  font-size: 3rem; /* Larger icon */
+.stats-card:hover {
+  border-color: var(--accent-gentle-pink); /* Add a subtle border highlight on hover */
+}
+
+
+.stats-card-icon-wrapper {
   margin-bottom: var(--spacing-sm);
-  color: var(--accent-warm-peach); /* Default color */
+  padding: var(--spacing-sm); /* Space around icon */
+  background-color: rgba(var(--accent-gentle-pink-rgb), 0.1); /* Soft background for icon */
+  border-radius: var(--border-radius-circle); /* Make it circular */
+  display: inline-flex; /* To hug the icon */
+  transition: transform var(--transition-fast);
+}
+
+.stats-card:hover .stats-card-icon-wrapper {
+    transform: scale(1.1); /* Slightly enlarge icon wrapper on hover */
+}
+
+.stats-card-icon { /* Styling for the icon itself if needed */
+  font-size: 2.5rem; /* Base size */
   line-height: 1;
 }
 
+.stats-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .stats-card-title {
-  font-family: var(--font-secondary);
-  font-size: 1.1rem; /* Using Quicksand if set for headings */
-  font-weight: var(--font-weight-semibold);
+  font-family: var(--font-secondary); /* Quicksand */
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-bold); /* Bolder title */
   color: var(--text-color-primary);
   margin-bottom: var(--spacing-xs);
 }
 
 .stats-card-stat {
-  font-family: var(--font-primary);
-  font-size: 2rem; /* Slightly smaller for balance */
+  font-family: var(--font-primary); /* Nunito Sans for clarity */
+  font-size: 2.25rem; /* Large and clear stat */
   font-weight: var(--font-weight-bold);
   color: var(--text-color-primary);
   margin-bottom: var(--spacing-xs);
-  line-height: 1.2;
+  line-height: 1.1; /* Adjust line height for large font */
 }
 
 .stats-card-subtext {
   font-family: var(--font-primary);
-  font-size: 0.875rem; /* ~14px */
+  font-size: 0.9rem;
   color: var(--text-color-secondary);
+  line-height: 1.4; /* Better readability */
 }
 
 /* Charts Section & Panel Styles */
