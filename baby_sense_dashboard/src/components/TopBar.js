@@ -1,15 +1,25 @@
 import React from 'react';
 
 // PUBLIC_INTERFACE
-function TopBar() {
+function TopBar({ onToggleSidebar }) {
   /**
    * Renders the top bar for the BabySense Dashboard.
-   * Includes the dashboard title (or logo), a placeholder for baby profile switcher,
-   * and a settings icon.
+   * Includes a sidebar toggle, the dashboard title,
+   * and action buttons like settings and profile.
+   * @param {object} props - Component props.
+   * @param {function} props.onToggleSidebar - Function to toggle the sidebar's collapsed state.
    */
   return (
     <header className="top-bar">
       <div className="top-bar-title-section">
+        <button 
+          onClick={onToggleSidebar} 
+          className="settings-button" // Re-use style for consistency
+          title="Toggle Sidebar"
+          style={{ marginRight: '10px' }}
+        >
+          <span className="icon">☰</span> {/* Hamburger icon for toggle */}
+        </button>
         {/* <span className="top-bar-logo-icon">👶</span> Optional: if logo is different from sidebar */}
         <h2 className="top-bar-title">Charlie's Cozy Corner</h2>
         {/* Placeholder for Baby Profile Switcher */}
