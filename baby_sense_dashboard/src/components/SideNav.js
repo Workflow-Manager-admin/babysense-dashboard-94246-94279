@@ -1,20 +1,26 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 // PUBLIC_INTERFACE
-function NavItem({ icon, text, isActive, onClick }) {
+function NavItem({ icon, text, to, isCollapsed }) {
   /**
-   * Renders a single navigation item for the SideNav.
+   * Renders a single navigation item for the SideNav using React Router's Link.
    *
    * @param {object} props - Component props.
-   * @param {string} props.icon - Icon for the navigation item (e.g., emoji or SVG placeholder).
+   * @param {string} props.icon - Icon for the navigation item.
    * @param {string} props.text - Text label for the navigation item.
-   * @param {boolean} [props.isActive] - Whether the item is currently active.
-   * @param {function} [props.onClick] - Function to call when item is clicked.
+   * @param {string} props.to - The path to navigate to.
+   * @param {boolean} props.isCollapsed - Whether the sidebar is collapsed.
    */
+  const location = useLocation();
+  const isActive = location.pathname === to || (to === "/" && location.pathname.startsWith("/#")); // Handles base path and potential hash routes for dashboard
+
   return (
-    <li className={`nav-item ${isActive ? 'active' : ''}`} onClick={onClick}>
-      <span className="nav-icon">{icon}</span>
-      <span className="nav-text">{text}</span>
+    <li className={`nav-item ${isActive ? 'active' : ''}`}>
+      <Link to={to} title={text}>
+        <span className="nav-icon">{icon}</span>
+        {!isCollapsed && <span className="nav-text">{text}</span>}
+      </Link>
     </li>
   );
 }
@@ -27,22 +33,23 @@ function SideNav({ isCollapsed }) {
    * @param {object} props - Component props.
    * @param {boolean} props.isCollapsed - Whether the sidebar is collapsed.
    */
-  const [activeItem, setActiveItem] = React.useState('Dashboard');
 
   const navItems = [
-    { icon: '🧸', text: 'Dashboard' }, // Teddy Bear for Dashboard
-    { icon: '😴', text: 'Sleep Insights' }, // Sleeping face
-    { icon: '👣', text: 'Activity Tracker' }, // Footprints
-    { icon: '🩺', text: 'Health Metrics' }, // Stethoscope
-    { icon: '🔔', text: 'Notifications' }, // Bell
-    { icon: '⚙️', text: 'Settings' }, // Gear
+    { icon: '🧸', text: 'Dashboard', to: '/' },
+    { icon: '😴', text: 'Sleep Insights', to: '/sleep-insights' },
+    { icon: '👣', text: 'Activity Tracker', to: '/activity-tracker' },
+    { icon: '🩺', text: 'Health Metrics', to: '/health-metrics' },
+    { icon: '🔔', text: 'Notifications', to: '/notifications' },
+    { icon: '⚙️', text: 'Settings', to: '/settings' },
   ];
 
   return (
     <nav className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
       <div className="sidebar-header">
-        <span className="sidebar-logo-icon">🍼</span> {/* Baby Bottle Logo */}
-        {!isCollapsed && <h1 className="sidebar-title">BabySense</h1>}
+        <Link to="/" className="sidebar-logo-link" title="BabySense Home">
+          <span className="sidebar-logo-icon">🍼</span>
+          {!isCollapsed && <h1 className="sidebar-title">BabySense</h1>}
+        </Link>
       </div>
       <ul className="nav-list">
         {navItems.map((item) => (
@@ -50,16 +57,48 @@ function SideNav({ isCollapsed }) {
             key={item.text}
             icon={item.icon}
             text={item.text}
-            isActive={activeItem === item.text}
-            onClick={() => setActiveItem(item.text)}
+            to={item.to}
+            isCollapsed={isCollapsed}
           />
         ))}
       </ul>
       <div className="sidebar-footer">
-        <p>&copy; {new Date().getFullYear()} BabySense</p>
+        {!isCollapsed && <p>&copy; {new Date().getFullYear()} BabySense</p>}
+        {isCollapsed && <p>BS</p>} {/* Short version for collapsed */}
       </div>
     </nav>
   );
 }
+
+// Small style adjustment for the Link in NavItem to fill the space
+const style = document.createElement('style');
+style.innerHTML = `
+  .nav-item > a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: var(--spacing-sm) ${'calc(var(--spacing-md) - 4px)'}; /* Adjust padding to account for border */
+    text-decoration: none;
+    color: inherit; /* Inherit color from .nav-item */
+  }
+
+  .sidebar.collapsed .nav-item > a {
+    justify-content: center;
+    padding: var(--spacing-sm);
+  }
+
+  .nav-item.active > a {
+     color: var(--text-color-primary); /* Ensure active link text is correct */
+  }
+   .sidebar-logo-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-decoration: none;
+    color: inherit;
+  }
+`;
+document.head.appendChild(style);
 
 export default SideNav;
