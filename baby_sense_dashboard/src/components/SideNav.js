@@ -20,10 +20,12 @@ function NavItem({ icon, text, isActive, onClick }) {
 }
 
 // PUBLIC_INTERFACE
-function SideNav() {
+function SideNav({ isCollapsed }) {
   /**
    * Renders the side navigation bar for the BabySense Dashboard.
    * Contains links to different sections of the dashboard.
+   * @param {object} props - Component props.
+   * @param {boolean} props.isCollapsed - Whether the sidebar is collapsed.
    */
   const [activeItem, setActiveItem] = React.useState('Dashboard');
 
