@@ -762,22 +762,33 @@ p {
 /* Footer Styles */
 .footer {
   text-align: center;
-  padding: var(--spacing-md) var(--spacing-sm);
-  margin-top: auto;
-  font-size: 0.875rem;
+  padding: var(--spacing-lg) var(--spacing-md); /* More padding */
+  margin-top: auto; /* Pushes to bottom of .main-layout */
+  font-family: var(--font-primary);
+  font-size: 0.875rem; /* ~14px */
   color: var(--text-color-secondary);
-  background-color: transparent; /* Transparent or match primary background */
+  background-color: var(--primary-background-color); /* Match overall background */
   border-top: 1px solid var(--border-color-light);
+}
+
+.footer-copyright {
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap; /* Allow links to wrap on small screens */
 }
 
 .footer-links a {
   color: var(--text-color-secondary);
   text-decoration: none;
-  margin: 0 var(--spacing-xs);
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), text-decoration var(--transition-fast);
 }
 
 .footer-links a:hover {
   text-decoration: underline;
-  color: var(--text-color-primary);
+  color: var(--accent-gentle-pink); /* Use an accent color for hover */
 }
