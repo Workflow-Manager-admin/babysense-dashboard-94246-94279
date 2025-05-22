@@ -2,9 +2,9 @@
 > react-kavia@0.1.0 start
 > react-scripts start
 
-(node:2236) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:2854) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 (Use `node --trace-deprecation ...` to show where the warning was created)
-(node:2236) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:2854) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 Starting the development server...
 
 Compiled successfully!
@@ -17,135 +17,4 @@ You can now view react-kavia in the browser.
 Note that the development build is not optimized.
 To create a production build, use npm run build.
 
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve '../pages/DashboardPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-ERROR in ./src/components/MainContent.js 8:0-51
-Module not found: Error: Can't resolve '../pages/DashboardPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 9:0-59
-Module not found: Error: Can't resolve '../pages/SleepInsightsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 10:0-63
-Module not found: Error: Can't resolve '../pages/ActivityTrackerPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 11:0-59
-Module not found: Error: Can't resolve '../pages/HealthMetricsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 12:0-59
-Module not found: Error: Can't resolve '../pages/NotificationsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 13:0-49
-Module not found: Error: Can't resolve '../pages/SettingsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-webpack compiled with 6 errors
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve '../pages/DashboardPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-ERROR in ./src/components/MainContent.js 8:0-51
-Module not found: Error: Can't resolve '../pages/DashboardPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 9:0-59
-Module not found: Error: Can't resolve '../pages/SleepInsightsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 10:0-63
-Module not found: Error: Can't resolve '../pages/ActivityTrackerPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 11:0-59
-Module not found: Error: Can't resolve '../pages/HealthMetricsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 12:0-59
-Module not found: Error: Can't resolve '../pages/NotificationsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 13:0-49
-Module not found: Error: Can't resolve '../pages/SettingsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-webpack compiled with 6 errors
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve '../pages/SleepInsightsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-ERROR in ./src/components/MainContent.js 9:0-59
-Module not found: Error: Can't resolve '../pages/SleepInsightsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 10:0-63
-Module not found: Error: Can't resolve '../pages/ActivityTrackerPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 11:0-59
-Module not found: Error: Can't resolve '../pages/HealthMetricsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 12:0-59
-Module not found: Error: Can't resolve '../pages/NotificationsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 13:0-49
-Module not found: Error: Can't resolve '../pages/SettingsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-webpack compiled with 5 errors
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve '../pages/ActivityTrackerPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-ERROR in ./src/components/MainContent.js 10:0-63
-Module not found: Error: Can't resolve '../pages/ActivityTrackerPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 11:0-59
-Module not found: Error: Can't resolve '../pages/HealthMetricsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 12:0-59
-Module not found: Error: Can't resolve '../pages/NotificationsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 13:0-49
-Module not found: Error: Can't resolve '../pages/SettingsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-webpack compiled with 4 errors
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve '../pages/HealthMetricsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-ERROR in ./src/components/MainContent.js 11:0-59
-Module not found: Error: Can't resolve '../pages/HealthMetricsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 12:0-59
-Module not found: Error: Can't resolve '../pages/NotificationsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 13:0-49
-Module not found: Error: Can't resolve '../pages/SettingsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-webpack compiled with 3 errors
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve '../pages/NotificationsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-ERROR in ./src/components/MainContent.js 12:0-59
-Module not found: Error: Can't resolve '../pages/NotificationsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-ERROR in ./src/components/MainContent.js 13:0-49
-Module not found: Error: Can't resolve '../pages/SettingsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-webpack compiled with 2 errors
-Compiling...
-Failed to compile.
-
-Module not found: Error: Can't resolve '../pages/SettingsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-ERROR in ./src/components/MainContent.js 13:0-49
-Module not found: Error: Can't resolve '../pages/SettingsPage' in '/home/kavia/workspace/code-generation/babysense-dashboard-94246-94279/baby_sense_dashboard/src/components'
-
-webpack compiled with 1 error
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
-webpack compiled successfully
-Compiling...
-Compiled successfully!
 webpack compiled successfully
