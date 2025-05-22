@@ -13,8 +13,8 @@ import EventTimelineSection from './components/EventTimelineSection';
 import Footer from './components/Footer'; // Footer might be part of MainContent or App shell
 
 // Placeholder for new components to be integrated later
-// import AlertsArea from './components/AlertsArea';
-// import ProfileModule from './components/ProfileModule';
+import AlertsArea from './components/AlertsArea';
+// import ProfileModule from './components/ProfileModule'; // Profile module is often a popover from TopBar
 
 
 // PUBLIC_INTERFACE
@@ -36,11 +36,11 @@ function App() {
       <div className={`main-layout ${isSidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
         <TopBar onToggleSidebar={toggleSidebar} /> {/* Pass toggle function to TopBar */}
         <MainContent>
-          {/* <AlertsArea /> */} {/* Placeholder for future integration */}
+          <AlertsArea /> {/* Alerts will appear at the top of the content */}
           <QuickGlanceSection />
           <ChartsSection />
           <EventTimelineSection />
-          {/* <ProfileModule /> */} {/* Placeholder for future integration */}
+          {/* ProfileModule would typically be triggered from TopBar, e.g. in a dropdown/modal */}
         </MainContent>
         <Footer />
       </div>
