@@ -42,6 +42,16 @@
   --border-radius-large: 16px;  /* From blueprint */
   --border-radius-circle: 50%;
 
+  /* Sidebar specific */
+  --sidebar-width: 260px;
+  --sidebar-width-collapsed: 70px;
+  --sidebar-background: #F0F8FF; /* AliceBlue, a very soft blue */
+  --sidebar-text-color: var(--text-color-primary);
+  --sidebar-icon-color: var(--accent-warm-peach);
+  --sidebar-active-background: rgba(var(--accent-gentle-pink-rgb), 0.2);
+  --sidebar-active-indicator: var(--accent-gentle-pink);
+
+
   /* Transitions */
   --transition-fast: all 0.15s ease-in-out;
   --transition-smooth: all 0.3s ease-in-out;
