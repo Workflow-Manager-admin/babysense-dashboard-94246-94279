@@ -506,7 +506,7 @@ p {
   align-items: center;
   margin-bottom: var(--spacing-md);
   flex-wrap: wrap; /* Allow wrapping for title and selector */
-  gap: var(--spacing-sm);
+  gap: var(--spacing-sm);\
 }
 
 .chart-panel-title {
@@ -846,6 +846,54 @@ p {
   color: #5897fb;
 }
 
+/* Page Specific Styles */
+.page-container {
+  animation: fadeInAnimation 0.5s ease-in-out; /* Apply fade-in to all pages */
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 2px solid var(--accent-gentle-pink);
+}
+
+.page-icon {
+  font-size: 2.5rem; /* Larger icon for page title */
+  color: var(--sidebar-icon-color); /* Consistent with sidebar icons */
+}
+
+.page-title-text { /* Replaces h1 for page titles for more control */
+  font-family: var(--font-secondary);
+  font-size: 2rem; /* Prominent page title */
+  font-weight: var(--font-weight-bold);
+  color: var(--text-color-primary);
+  margin: 0;
+}
+
+.placeholder-block {
+  background-color: var(--container-background-color);
+  border-radius: var(--border-radius-medium);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--shadow-soft);
+  border: 1px dashed var(--border-color-light);
+  color: var(--text-color-secondary);
+}
+
+.placeholder-block h2 {
+  font-size: 1.5rem;
+  color: var(--text-color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.placeholder-block p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
 /* Responsive adjustments */
 @media (max-width: 992px) { /* Broader breakpoint for sidebar collapse */
   .sidebar {
@@ -887,7 +935,8 @@ p {
   .top-bar-title {
     font-size: 1.25rem !important;
   }
-  h1 { font-size: 1.8rem; }
+  h1 { font-size: 1.8rem; } /* general h1 */
+  .page-title-text { font-size: 1.6rem; } /* Specific page title */
   h2 { font-size: 1.4rem; }
 
   .stats-card-grid {
@@ -914,6 +963,14 @@ p {
     margin-left: 0;
     padding-left: 0;
     margin-top: var(--spacing-xs);
+  }
+  .page-header {
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+  }
+  .page-icon {
+    font-size: 2rem;
   }
 }
 
