@@ -38,7 +38,7 @@ function SettingsPage() {
         <p style={{ marginBottom: 'var(--spacing-sm)' }}>Keep Charlie's information up to date.</p>
         <p><strong>Name:</strong> Charlie</p>
         <p><strong>Date of Birth:</strong> October 1st, 2023</p>
-        {/* Placeholder for avatar selection/upload */}
+        
         <p><strong>Avatar:</strong> 👶</p> 
         <button className="btn btn-primary" style={{ marginTop: 'var(--spacing-sm)' }}>Edit Profile</button>
         <button className="btn" style={{ marginTop: 'var(--spacing-sm)', marginLeft: 'var(--spacing-xs)' }}>Add Another Baby</button>
