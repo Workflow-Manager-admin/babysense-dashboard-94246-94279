@@ -24,7 +24,7 @@ function EventItem({ type = 'log', icon, message, details, timestamp, onClick })
   if (!icon) {
     switch (type) {
       case 'alert':
-        iconToShow = '⚠️'; // Warning emoji for alerts
+        iconToShow = '🔔'; // Bell for alerts
         defaultIconColor = 'var(--accent-gentle-pink)';
         break;
       case 'tip':
@@ -33,7 +33,7 @@ function EventItem({ type = 'log', icon, message, details, timestamp, onClick })
         break;
       case 'log':
       default:
-        iconToShow = '📄'; // Document for logs
+        iconToShow = '📋'; // Clipboard for logs
         defaultIconColor = 'var(--accent-calm-green)';
         break;
     }
