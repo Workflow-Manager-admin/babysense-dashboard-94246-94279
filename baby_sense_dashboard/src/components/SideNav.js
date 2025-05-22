@@ -68,7 +68,7 @@ function SideNav({ isCollapsed }) {
       </ul>
       <div className="sidebar-footer">
         {!isCollapsed && <p>&copy; {new Date().getFullYear()} BabySense</p>}
-        {isCollapsed && <p>BS</p>} {/* Short version for collapsed */}
+        {isCollapsed && <p>BS</p>}
       </div>
     </nav>
   );

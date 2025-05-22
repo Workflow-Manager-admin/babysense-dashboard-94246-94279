@@ -15,7 +15,7 @@ function EventTimelineSection() {
   };
 
   return (
-    <section className="event-timeline-section card"> {/* Applying .card for consistency */}
+    <section className="event-timeline-section card">
       <h2 className="event-timeline-title">Activity Feed & Gentle Nudges</h2>
       <div className="event-list">
         <EventItem

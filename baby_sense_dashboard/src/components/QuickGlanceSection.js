@@ -16,7 +16,7 @@ function QuickGlanceSection() {
 
   return (
     <section className="quick-glance-section">
-      <h2 className="section-title">At a Glance ✨</h2> {/* Added sparkle to title */}
+      <h2 className="section-title">At a Glance ✨</h2>
       <div className="stats-card-grid">
         <StatsCard
           icon="😴" // Sleeping face icon
